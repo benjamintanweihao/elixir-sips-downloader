@@ -6,12 +6,13 @@ class ElixirSipsDownloader::Extractors::Files < ElixirSipsDownloader::Extractor
   #   extracted from feed item description.
   def extract item_description
     files = Set.new
-    document = REXML::Document.new item_description
-    document.elements.each("/div[@class='blog-entry']/ul/li/a") { |element|
+    doc = Nokogiri::XML(item_description)
+    
+    doc.xpath("/div[@class='blog-entry']/ul/li/a").each do |element|
       name = element.text
       link = element.attribute('href').to_s
       files << ElixirSipsDownloader::Downloadables::File.new(name, link)
-    }
+    end
     files
   end
 end

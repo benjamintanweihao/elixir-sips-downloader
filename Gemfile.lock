@@ -68,5 +68,6 @@ DEPENDENCIES
   debugger (~> 1.6.5)
   mechanize
   mechanize-progressbar!
+  nokogiri
   pry-debugger
   rspec

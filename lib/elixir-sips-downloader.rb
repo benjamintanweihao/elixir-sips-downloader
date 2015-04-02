@@ -5,6 +5,7 @@ require 'rexml/document'
 require 'set'
 require 'cgi'
 require 'logger'
+require 'nokogiri'
 
 module ElixirSipsDownloader
   class << self
