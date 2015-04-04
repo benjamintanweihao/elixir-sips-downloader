@@ -5,13 +5,15 @@ class ElixirSipsDownloader::Extractors::Files < ElixirSipsDownloader::Extractor
   # @return [Set<ElixirSipsDownloader::Downloadables::File>] the Set of Files
   #   extracted from feed item description.
   def extract item_description
+		require 'nokogiri'
     files = Set.new
-    document = REXML::Document.new item_description
-    document.elements.each("/div[@class='blog-entry']/ul/li/a") { |element|
+
+    document = Nokogiri::XML(item_description)
+		document.search("//a[contains(@href, 'download')]").each do |element|
       name = element.text
       link = element.attribute('href').to_s
       files << ElixirSipsDownloader::Downloadables::File.new(name, link)
-    }
+		end
     files
   end
 end
