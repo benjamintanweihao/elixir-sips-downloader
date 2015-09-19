@@ -47,6 +47,11 @@ Go support [Josh Adams](https://plus.google.com/104164786189701557366?rel=author
 Also, and obviously, props to [Leandro Facchinetti](https://github.com/leafac) for making the downloading of these
 screencasts so much easier.
 
+Also see
+--------
+
+* [Sipper](https://github.com/henrik/sipper), an Elixir Sips downloader written in Elixir
+
 License
 -------
 
